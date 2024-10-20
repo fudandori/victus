@@ -1,5 +1,6 @@
 const food = {
     tomate_tamizado: {
+        name: "Tomate tamizado",
         calories: 35,
         fat: 0.2,
         fat_sat: 0,
@@ -9,7 +10,8 @@ const food = {
         fiber: 0,
         salt: 0.1
     },
-    pechuga_pavo_92percent: {
+    pechuga_pavo_92: {
+        name: "Fiambre pavo 92%",
         calories: 89,
         fat: 1.3,
         fat_sat: 0.5,
@@ -20,6 +22,7 @@ const food = {
         salt: 1.9
     },
     filetes_pavo: {
+        name: "Filetes pechuga pavo",
         calories: 103,
         fat: 0.9,
         fat_sat: 0.3,
@@ -30,6 +33,7 @@ const food = {
         salt: 0.26
     },
     yogur: {
+        name: "Yogur 0,0",
         calories: 35,
         fat: 0.1,
         fat_sat: 0,
@@ -40,3 +44,5 @@ const food = {
         salt: 0.13
     }
 }
+
+export default food;
