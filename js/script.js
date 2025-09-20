@@ -1,5 +1,31 @@
 import food from "./values.js";
 
+const wideText = document.getElementById("wide-text");
+const modal = document.getElementById("modal");
+
+wideText.addEventListener("input", function () {
+    const val = wideText.value.trim();
+    if (val.length >= 3) {
+        // Filter food list by name
+        const matches = Object.entries(food).filter(([key, value]) => value.name.toLowerCase().startsWith(val.toLowerCase()));
+        modal.innerHTML = "";
+        modal.classList.toggle("show", matches.length);
+        matches.forEach(([key, value]) => {
+            const div = document.createElement("div");
+            div.textContent = value.name;
+            div.className = "modal-item";
+            div.style.padding = "0.5em";
+            div.setAttribute('key', key);
+            div.addEventListener("click", click);
+
+            modal.appendChild(div);
+        });
+    } else {
+        modal.classList.remove("show");
+        modal.innerHTML = "";
+    }
+});
+
 let current = {}
 let total = {
     name: "Total",
@@ -13,30 +39,27 @@ let total = {
     salt: 0
 }
 
-const select = document.getElementById("food-dropdown");
 const button = document.getElementById("button-add");
 const table = document.getElementById("table");
 
-Object.keys(food).forEach(k => {
-    const opt = document.createElement('option');
-    opt.value = k;
-    opt.innerHTML = food[k].name;
-    select.appendChild(opt);
-});
-
-
-const onChange = (ev) => {
-    const value = ev.target.value;
-    button.disabled = value === "nil";
+const click = (ev) => {
+    document.getElementById("wide-text").value = "";
+    const value = ev.target.getAttribute('key');
     current = food[value];
+    modal.classList.remove("show");
+    document.getElementById("setup").classList.add("show");
+    document.getElementById("label").innerText = current.name;
+    document.getElementById("label").addEventListener("click", onClick);
 }
+
 const onClick = () => {
+    document.getElementById("setup").classList.remove("show");
     const q = document.getElementById("quant").value;
     const tr = document.createElement("tr");
 
-    Object.values(current).forEach((v,i) => {
+    Object.values(current).forEach((v, i) => {
         const td = document.createElement("td");
-        td.innerHTML = i > 0 ? v*q/100 : `${v} (${q}g)`;
+        td.innerHTML = i > 0 ? v * q / 100 : `${v} (${q}g)`;
         tr.appendChild(td);
     });
 
@@ -49,14 +72,14 @@ const onClick = () => {
     }
 
 
-    total.calories = Number((total.calories + current.calories*q/100).toFixed(2));
-    total.carbs = Number((total.carbs + current.carbs*q/100).toFixed(2));
-    total.fat = Number((total.fat + current.fat*q/100).toFixed(2));
-    total.fat_sat = Number((total.fat_sat + current.fat_sat*q/100).toFixed(2));
-    total.sugar = Number((total.sugar + current.sugar*q/100).toFixed(2));
-    total.fiber = Number((total.fiber + current.fiber*q/100).toFixed(2));
-    total.salt = Number((total.salt + current.salt*q/100).toFixed(2));
-    total.prot = Number((total.prot + current.prot*q/100).toFixed(2));
+    total.calories = Number((total.calories + current.calories * q / 100).toFixed(2));
+    total.carbs = Number((total.carbs + current.carbs * q / 100).toFixed(2));
+    total.fat = Number((total.fat + current.fat * q / 100).toFixed(2));
+    total.fat_sat = Number((total.fat_sat + current.fat_sat * q / 100).toFixed(2));
+    total.sugar = Number((total.sugar + current.sugar * q / 100).toFixed(2));
+    total.fiber = Number((total.fiber + current.fiber * q / 100).toFixed(2));
+    total.salt = Number((total.salt + current.salt * q / 100).toFixed(2));
+    total.prot = Number((total.prot + current.prot * q / 100).toFixed(2));
 
     totals = document.createElement("tr");
     totals.id = "totals"
@@ -70,7 +93,3 @@ const onClick = () => {
     table.appendChild(totals);
 
 }
-select.addEventListener("change", onChange);
-
-
-button.addEventListener("click", onClick)

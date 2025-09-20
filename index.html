@@ -5,30 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Victus</title>
+    <link rel="stylesheet" href="./style.css">
     <script type="module" src="./js/script.js"></script>
 </head>
 
 <body>
-    <label for="food">Comida:</label>
-    <select name="food" id="food-dropdown">
-        <option value="nil">--Seleccionar--</option>
-    </select>
-
-    <label for="quant">Cantidad:</label>
-    <input type="number" name="quant" id="quant" value="100">
-
-    <button type="button" id="button-add" disabled>Añadir</button>
-
+    <input type="text" id="wide-text" name="wide-text" placeholder="Buscar..." title="Search">
+    <div id="modal"></div>
+    <div id="setup">
+        <div id="label"></div>
+        <input type="number" name="quant" id="quant" value="100" title="Quantity">
+    </div>
     <table id="table">
         <tr>
-            <th>Comida</th>
+            <th>F</th>
             <th>kcal</th>
-            <th>grasas</th>
-            <th>grasas sat.</th>
+            <th>fat</th>
+            <th>s fat</th>
             <th>carbs</th>
-            <th>azucares</th>
-            <th>proteina</th>
-            <th>fibra</th>
+            <th>sug</th>
+            <th>prot</th>
+            <th>fib</th>
             <th>sal</th>
         </tr>
     </table>

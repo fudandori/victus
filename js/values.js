@@ -42,7 +42,48 @@ const food = {
         prot: 4.3,
         fiber: 0,
         salt: 0.13
-    }
+    },
+        tomate_tamizadouno: {
+        name: "Tomate tamizado uno",
+        calories: 35,
+        fat: 0.2,
+        fat_sat: 0,
+        carbs: 6.6,
+        sugar: 3.8,
+        prot: 1.4,
+        fiber: 0,
+        salt: 0.1
+    },    tomate_tamizados: {
+        name: "Tomate tamizados",
+        calories: 35,
+        fat: 0.2,
+        fat_sat: 0,
+        carbs: 6.6,
+        sugar: 3.8,
+        prot: 1.4,
+        fiber: 0,
+        salt: 0.1
+    },    tomate_tamizadotr: {
+        name: "Tomate tamizadotreh",
+        calories: 35,
+        fat: 0.2,
+        fat_sat: 0,
+        carbs: 6.6,
+        sugar: 3.8,
+        prot: 1.4,
+        fiber: 0,
+        salt: 0.1
+    },    tomate_tamizadoq: {
+        name: "Tomate tamizadoqqq",
+        calories: 35,
+        fat: 0.2,
+        fat_sat: 0,
+        carbs: 6.6,
+        sugar: 3.8,
+        prot: 1.4,
+        fiber: 0,
+        salt: 0.1
+    },
 }
 
 export default food;
