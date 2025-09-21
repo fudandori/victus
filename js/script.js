@@ -7,7 +7,7 @@ wideText.addEventListener("input", function () {
     const val = wideText.value.trim();
     if (val.length >= 3) {
         // Filter food list by name
-        const matches = Object.entries(food).filter(([key, value]) => value.name.toLowerCase().startsWith(val.toLowerCase()));
+        const matches = Object.entries(food).filter(([_, value]) => value.name.toLowerCase().includes(val.toLowerCase()));
         modal.innerHTML = "";
         modal.classList.toggle("show", matches.length);
         matches.forEach(([key, value]) => {
@@ -36,7 +36,8 @@ let total = {
     sugar: 0,
     prot: 0,
     fiber: 0,
-    salt: 0
+    salt: 0,
+    price: 0
 }
 
 const button = document.getElementById("button-add");
@@ -57,10 +58,17 @@ const onClick = () => {
     const q = document.getElementById("quant").value;
     const tr = document.createElement("tr");
 
+    const td = document.createElement("td");
+    td.innerHTML = getImg(current)
+    td.id = "first-col";
+    tr.appendChild(td);
+
     Object.values(current).forEach((v, i) => {
-        const td = document.createElement("td");
-        td.innerHTML = i > 0 ? v * q / 100 : `${v} (${q}g)`;
-        tr.appendChild(td);
+        if (i > 1) {
+            const td = document.createElement("td");
+            td.innerHTML = v * q / 100
+            tr.appendChild(td);
+        }
     });
 
     table.appendChild(tr);
@@ -71,7 +79,6 @@ const onClick = () => {
         table.removeChild(totals)
     }
 
-
     total.calories = Number((total.calories + current.calories * q / 100).toFixed(2));
     total.carbs = Number((total.carbs + current.carbs * q / 100).toFixed(2));
     total.fat = Number((total.fat + current.fat * q / 100).toFixed(2));
@@ -80,6 +87,7 @@ const onClick = () => {
     total.fiber = Number((total.fiber + current.fiber * q / 100).toFixed(2));
     total.salt = Number((total.salt + current.salt * q / 100).toFixed(2));
     total.prot = Number((total.prot + current.prot * q / 100).toFixed(2));
+    total.price = Number((total.price + current.price * q / 100).toFixed(2));
 
     totals = document.createElement("tr");
     totals.id = "totals"
@@ -92,4 +100,8 @@ const onClick = () => {
 
     table.appendChild(totals);
 
+}
+
+let getImg = (obj) => {
+    return `<img src="../img/${obj.img}.png" style="height:2em;vertical-align:middle" onclick="enlarge" data="${obj.name}"/>`
 }

@@ -85,3 +85,23 @@ body {
   width: 20%;
   text-align: center;
 }
+
+table {
+  width: 100%;
+  margin-top: 1em;
+  background-color: antiquewhite;
+  font-size: larger;
+  border-collapse: collapse;
+}
+
+td {
+  text-align: right;
+}
+
+th {
+  background-color: peru;
+}
+
+#first-col {
+  text-align: center;
+}

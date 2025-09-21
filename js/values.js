@@ -1,6 +1,7 @@
 const food = {
     tomate_tamizado: {
         name: "Tomate tamizado",
+        img: "tomate_tamizado",
         calories: 35,
         fat: 0.2,
         fat_sat: 0,
@@ -8,10 +9,12 @@ const food = {
         sugar: 3.8,
         prot: 1.4,
         fiber: 0,
-        salt: 0.1
+        salt: 0.1,
+        price: 0.23
     },
     pechuga_pavo_92: {
         name: "Fiambre pavo 92%",
+        img: "pavo92",
         calories: 89,
         fat: 1.3,
         fat_sat: 0.5,
@@ -19,10 +22,12 @@ const food = {
         sugar: 0,
         prot: 19,
         fiber: 0,
-        salt: 1.9
+        salt: 1.9,
+        price: 1.38
     },
     filetes_pavo: {
         name: "Filetes pechuga pavo",
+        img: "pavo",
         calories: 103,
         fat: 0.9,
         fat_sat: 0.3,
@@ -30,60 +35,217 @@ const food = {
         sugar: 0,
         prot: 24,
         fiber: 0,
-        salt: 0.26
+        salt: 0.26,
+        price: 87.5
     },
-    yogur: {
-        name: "Yogur 0,0",
-        calories: 35,
-        fat: 0.1,
-        fat_sat: 0,
-        carbs: 4.4,
-        sugar: 4.4,
-        prot: 4.3,
+    yogurprot: {
+        name: "Yogur Natural +Proteinas",
+        img: "yogurprot",
+        calories: 52,
+        fat: 0.5,
+        fat_sat: 0.1,
+        carbs: 3.1,
+        sugar: 3.1,
+        prot: 10,
         fiber: 0,
-        salt: 0.13
+        salt: 0.1,
+        price: 0.56
     },
-        tomate_tamizadouno: {
-        name: "Tomate tamizado uno",
-        calories: 35,
-        fat: 0.2,
-        fat_sat: 0,
-        carbs: 6.6,
-        sugar: 3.8,
-        prot: 1.4,
-        fiber: 0,
-        salt: 0.1
-    },    tomate_tamizados: {
-        name: "Tomate tamizados",
-        calories: 35,
-        fat: 0.2,
-        fat_sat: 0,
-        carbs: 6.6,
-        sugar: 3.8,
-        prot: 1.4,
-        fiber: 0,
-        salt: 0.1
-    },    tomate_tamizadotr: {
-        name: "Tomate tamizadotreh",
-        calories: 35,
-        fat: 0.2,
-        fat_sat: 0,
-        carbs: 6.6,
-        sugar: 3.8,
-        prot: 1.4,
-        fiber: 0,
-        salt: 0.1
-    },    tomate_tamizadoq: {
-        name: "Tomate tamizadoqqq",
-        calories: 35,
-        fat: 0.2,
-        fat_sat: 0,
-        carbs: 6.6,
-        sugar: 3.8,
-        prot: 1.4,
-        fiber: 0,
-        salt: 0.1
+    aguacate: {
+        name: "Aguacate",
+        img: "aguacate",
+        calories: 160,
+        fat: 14.7,
+        fat_sat: 1.9,
+        carbs: 7.8,
+        sugar: 0.7,
+        prot: 2,
+        fiber: 7,
+        salt: 0,
+        price: 0.71
     },
+    arroz_vaporizado: {
+        name: "Arroz vaporizado",
+        img: "arroz",
+        calories: 345,
+        fat: 0.7,
+        fat_sat: 0.2,
+        carbs: 76,
+        sugar: 0.6,
+        prot: 7.9,
+        fiber: 0,
+        salt: 0.01,
+        price: 0.17
+    },
+    brotes: {
+        name: "Brotes Tiernos",
+        img: "brotes",
+        calories: 24,
+        fat: 0.3,
+        fat_sat: 0,
+        carbs: 2.8,
+        sugar: 0.7,
+        prot: 1.8,
+        fiber: 1.3,
+        salt: 0.1,
+        price: 0.94
+    },
+    cacahuete_polvo: {
+        name: "Cacahuete en polvo",
+        img: "cacahuete",
+        calories: 416,
+        fat: 13.2,
+        fat_sat: 1.7,
+        carbs: 21,
+        sugar: 10,
+        prot: 46.7,
+        fiber: 13.3,
+        salt: 0,
+        price: 1.38
+    },
+    campestre: {
+        name: "Totitas Maiz Campestre",
+        img: "campestre",
+        calories: 414,
+        fat: 8.4,
+        fat_sat: 0.8,
+        carbs: 76,
+        sugar: 1.9,
+        prot: 6.7,
+        fiber: 3.9,
+        salt: 1.6,
+        price: 1.25
+    },
+    clara_huevo: {
+        name: "Claras de huevo",
+        img: "claras",
+        calories: 42,
+        fat: 0.5,
+        fat_sat: 0.1,
+        carbs: 0.5,
+        sugar: 0.5,
+        prot: 11,
+        fiber: 0,
+        salt: 0.44,
+        price: 0.29
+    },
+    huevo: {
+        name: "Huevo L",
+        img: "huevos",
+        calories: 150,
+        fat: 11.1,
+        fat_sat: 3.1,
+        carbs: 0.5,
+        sugar: 0.5,
+        prot: 12.5,
+        fiber: 0,
+        salt: 0.36,
+        price: 0.42 // 1 huevo = 55g = 0.42€
+    },
+    leche_plus: {
+        name: "Leche +Proteinas",
+        img: "lecheplus",
+        calories: 44,
+        fat: 0.2,
+        fat_sat: 0.1,
+        carbs: 4.6,
+        sugar: 4.6,
+        prot: 6,
+        fiber: 0,
+        salt: 0.13,
+        price: 0.14
+    },
+    lechuga: {
+        name: "Lechuga romana",
+        img: "lechuga",
+        calories: 14,
+        fat: 0.5,
+        fat_sat: 0.1,
+        carbs: 1.4,
+        sugar: 0.5,
+        prot: 1,
+        fiber: 1.8,
+        salt: 0.02,
+        price: 0.17 // Ni puta idea
+    },
+    pollo: {
+        name: "Pechuga de pollo",
+        img: "pollo",
+        calories: 110,
+        fat: 1.8,
+        fat_sat: 0.6,
+        carbs: 0.5,
+        sugar: 0,
+        prot: 22,
+        fiber: 0,
+        salt: 0.19,
+        price: 0.62
+    },
+    tomate_triturado: {
+        name: "Tomate triturado",
+        img: "tomate-triturado",
+        calories: 23,
+        fat: 0.20,
+        fat_sat: 0,
+        carbs: 3.8,
+        sugar: 3.0,
+        prot: 1.1,
+        fiber: 0,
+        salt: 0.7,
+        price: 1.00
+    },
+    tortilla_trigo: {
+        name: "Tortilla de trigo",
+        img: "tortillas",
+        calories: 294,
+        fat: 5.8,
+        fat_sat: 2.0,
+        carbs: 50.0,
+        sugar: 1.7,
+        prot: 8.4,
+        fiber: 4.2,
+        salt: 1.6,
+        price: 0.32
+    },
+    soja_vainilla: {
+        name: "Bebida de soja con vainilla",
+        img: "vainilla",
+        calories: 31,
+        fat: 1.6,
+        fat_sat: 0.2,
+        carbs: 0.9,
+        sugar: 0,
+        prot: 3,
+        fiber: 0.5,
+        salt: 0.17,
+        price: 0.11
+    },
+    yogur_proteina_fresa: {
+        name: "Yogur líquido fresa +proteínas",
+        img: "yogur-liquido",
+        calories: 50,
+        fat: 0.4,
+        fat_sat: 0.3,
+        carbs: 4.2,
+        sugar: 3.8,
+        prot: 7.2,
+        fiber: 0,
+        salt: 0.12,
+        price: 0.41
+    },
+    pepinillos: {
+        name: "Pepinillos en vinagre",
+        img: "pepinillos",
+        calories: 19,
+        fat: 0.5,
+        fat_sat: 0.2,
+        carbs: 2.3,
+        sugar: 0.6,
+        prot: 1.3,
+        fiber: 0.6,
+        salt: 1.5,
+        price: 0.65
+    }
 }
 
 export default food;
